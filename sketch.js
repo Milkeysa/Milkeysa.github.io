@@ -25,12 +25,21 @@ function mousewheel(event){
   }
 }
 
+function mouseDistance(x1,y1,x2,y2){
+  let a = math.abs(x1-x2);
+  let b = math.abs(y1-y2);
+  let c = math.sqrt(a*a,b*b);
+  return c;
+}
+
 function drawNodes(){
   fill(colorArray[colorIndex]);
   stroke(colorArray[colorIndex]);
   circle(width/2,height/2,20);
   circle(mouseX,mouseY,20);
   line(width/2,height/2,mouseX,mouseY);
+  let d = mouseDistance(mouseX,mouseY,width/2,height/2);
+  text(d,width/2,height*0.6);
 }
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -40,4 +49,5 @@ function setup() {
 function draw() {
   background(220);
   drawNodes();
+  mousewheel();
 }
