@@ -7,12 +7,22 @@
 
 //global function
 let colorArray = []; //red,blue etcc
-let colorIndex = 0;
+let colorIndex = 2;
 
 function createColors(){
   colorArray.push("red");
   colorArray.push( 200,100,255);
   colorArray.push("midnightblue");
+}
+
+function mousewheel(event){
+  print(event.delta);
+  if event.delta <0{
+    colorIndex += 1;
+    if colorIndex > colorArray.length -1){
+      colorIndex = 0;
+    }
+  }
 }
 
 function drawNodes(){
