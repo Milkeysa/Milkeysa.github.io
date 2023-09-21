@@ -17,9 +17,9 @@ function createColors(){
 
 function mousewheel(event){
   print(event.delta);
-  if event.delta <0{
+  if (event.delta <0){
     colorIndex += 1;
-    if colorIndex > colorArray.length -1){
+    if (colorIndex > colorArray.length -1){
       colorIndex = 0;
     }
   }
