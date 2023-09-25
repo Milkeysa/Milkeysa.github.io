@@ -1,32 +1,39 @@
-// Drawing Single and Nested Loops
+// Drawing with Single and Nested Loops
 // Milkeysa
-// 25th September
-
+// Sept 25
+// loops
 
 // Global Variables
-let numSegments = 4;
-let segmentHeight;
-
+let numSegments = 10; 
+let segmentHeight;  //height/numSegments.
+const GRID_SPACING = 50
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   segmentHeight = height/numSegments;
 }
 
-
 function gradient(){
-  noStroke();
-  for(let i = 0; i < numSegments; i ++){
-    let y = 1; segmentHeight;
-    let fillValue = map(y,0,height,0,255);
-    fill(fillValue, 255-fillValue,0);
-    rect(0,width,segmentHeight);
+  // use a loop to create a gradient background
+  for(let i = 0; i < numSegments; i++){
+    let y = i * segmentHeight;
+    fill(y);
+    rect(0,y,width, segmentHeight);
   }
-  stroke(0);
 }
 
+function drawGrid(){
+  for (let x =0; x< width; x = x + GRID_SPACING){
+    for (let y =0; y< height; y = y + GRID_SPACING){
+      fill(0);
+      //circle(x,y,10);
 
+      noCursor();
+      line(mouseX,mouseY,x,y);
+    }
+  }
+}
 function draw() {
-  background(220);
   gradient();
+  drawGrid();
 }
